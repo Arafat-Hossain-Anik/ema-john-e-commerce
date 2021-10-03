@@ -1,36 +1,36 @@
-import { Route } from 'react-router-dom';
-import { Switch } from 'react-router-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
-import Header from './components/Header/Header';
-import Shop from './components/Shop/Shop';
-import OrderReview from './components/OrderReview/OrderReview';
-import Inventoty from './components/Inventory/Inventoty';
-import NotFound from './components/NotFound/NotFound';
+import Header from './component/Header/Header';
+import Shop from './component/Shop/Shop';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import ReviewOrder from './component/ReviewOrder/ReviewOrder';
+import PlaceOrder from './component/PlaceOrder/PlaceOrder';
 
 function App() {
   return (
     <div>
-      <Header></Header>
       <Router>
+        <Header></Header>
         <Switch>
-          <Route exact path='/'>
+          <Route path="/shop">
             <Shop></Shop>
           </Route>
-          <Route exact path='/shop'>
+          <Route exact path="/">
             <Shop></Shop>
           </Route>
-          <Route exact path='/review'>
-            <OrderReview></OrderReview>
+          <Route path="/home">
+            <Shop></Shop>
           </Route>
-          <Route path='/inventory'>
-            <Inventoty></Inventoty>
+          <Route path="/order">
+            <ReviewOrder></ReviewOrder>
           </Route>
-          <Route path='*'>
-            <NotFound></NotFound>
+          <Route path="/placeorder">
+            <PlaceOrder></PlaceOrder>
           </Route>
         </Switch>
       </Router>
+
     </div>
   );
 }

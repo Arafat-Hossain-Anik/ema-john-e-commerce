@@ -5,8 +5,9 @@ const useProducts = () => {
     useEffect(() => {
         fetch('./products.json')
             .then(res => res.json())
-            .then(data => setProducts(data))
-    }, [])
-    return [products];
+            .then(data => setProducts(data));
+    }, []);
+
+    return { products, setProducts };
 }
 export default useProducts;
